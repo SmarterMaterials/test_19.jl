@@ -19,9 +19,9 @@ Id = diagonal_tensor(VectorValue([1.0, 1.0, 1.0]))
 #---------------------------------------
 air_layer = diagonal_tensor(VectorValue([1.0^2, 1.0^2, 1.0^2]))
 #---------------------------------------
-KTA_layer = diagonal_tensor(VectorValue([(Sellemeyer(λ1, guide.sx))^2, (Sellemeyer(λ1, guide.sy))^2, (Sellemeyer(λ1, guide.sz))^2]))
+guide_layer = diagonal_tensor(VectorValue([(Sellemeyer(λ1, guide.sx))^2, (Sellemeyer(λ1, guide.sy))^2, (Sellemeyer(λ1, guide.sz))^2]))
 #---------------------------------------
-KTP_layer = diagonal_tensor(VectorValue([(Sellemeyer(λ1, substrate.sx))^2, (Sellemeyer(λ1, substrate.sy))^2, (Sellemeyer(λ1, substrate.sz))^2]))
+substrate_layer = diagonal_tensor(VectorValue([(Sellemeyer(λ1, substrate.sx))^2, (Sellemeyer(λ1, substrate.sy))^2, (Sellemeyer(λ1, substrate.sz))^2]))
 
 #---------------------------------------
 
@@ -32,10 +32,10 @@ model = GmshDiscreteModel("mesh.msh")
 
 labels = get_face_labeling(model)
 
-#epsilons = ["core" => KTA_layer, "box" => KTP_layer, "clad" => air_layer]
+epsilons = ["core" => guide_layer, "box" => substrate_layer, "clad" => air_layer]
 
 ε(tag) = Dict(get_tag_from_name(labels, u) => v for (u, v) in epsilons)[tag]
 
 τ = CellField(get_face_tag(labels, num_cell_dims(model)), Ω)
 
-modes = calculate_modes(model, ε ∘ τ, λ = 1.5, num = 2, order = 1)
+modes = calculate_modes(model, ε ∘ τ, λ = λ1, num = 2, order = 1)
