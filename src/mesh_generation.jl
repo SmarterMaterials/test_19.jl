@@ -1,4 +1,4 @@
-ENV["PYTHON"]="C:\\Users\\adrien.clavel\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+ENV["PYTHON"]="C:\\Users\\name.surname\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
 
 using PyCall
 
