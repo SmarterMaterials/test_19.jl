@@ -3,7 +3,23 @@ uuid = "3cce5eef-6229-42f5-8b2c-011bb87f715a"
 authors = ["SmarterMaterials <pro.adrienclavel@protonmail.com> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Gridap = "56d4f2e9-7ea1-5844-9cf6-b9c51ca7ce8e"
+GridapGmsh = "3025c34a-b394-11e9-2a55-3fee550c04c8"
+GridapMakie = "41f30b06-6382-4b60-a5f7-79d86b35bf5d"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+
 [compat]
+CairoMakie = "0.15.4"
+Gridap = "0.19.3"
+GridapGmsh = "0.7.3"
+GridapMakie = "0.1.7"
+LinearAlgebra = "1.11.0"
+PyCall = "1.96.4"
+SparseArrays = "1.11.0"
 julia = "1.9"
 
 [extras]
